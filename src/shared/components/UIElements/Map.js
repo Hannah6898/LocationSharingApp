@@ -1,9 +1,10 @@
 import React, { useRef, useEffect } from "react";
 import "./Map.css";
+// import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 function Map(props) {
 
-    console.log(props.center)
+  console.log(props.center)
   const mapRef = useRef();
 
   const {center, zoom} =props;
@@ -25,5 +26,4 @@ function Map(props) {
     ></div>
   );
 }
-
 export default Map;
