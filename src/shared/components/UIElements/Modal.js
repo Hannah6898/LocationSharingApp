@@ -1,19 +1,19 @@
 import "./Modal.css";
-import  ReactDOM from "react-dom";
+import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import Backdrop from "./Backdrop";
-import React from 'react'
+import React, { useRef } from "react";
 
-//This function holds the structure of the modal and uses props to fill in the content and the classes 
-function ModalOverlay(props) {
+//This function holds the structure of the modal and uses props to fill in the content and the classes
+const ModalOverlay = React.forwardRef((props, ref) => {
   const content = (
-    <div className={`modal ${props.className}`} style={props.style}>
+    <div className={`modal ${props.className}`} style={props.style} ref={ref}>
       <header className={`modal__header ${props.headerClass}`}>
         <h2>{props.header}</h2>
       </header>
       <form
-        onSumbit={
-          props.onSumbit ? props.onSumbit : (event) => event.preventDefault()
+        onSubmit={
+          props.onSubmit ? props.onSubmit : (event) => event.preventDefault()
         }
       >
         <div className={`modal__content ${props.contentclass}`}>
@@ -21,15 +21,16 @@ function ModalOverlay(props) {
         </div>
       </form>
       <footer className={`modal__footer ${props.footerClass}`}>
-          {props.footer}
-        </footer>
+        {props.footer}
+      </footer>
     </div>
   );
   return ReactDOM.createPortal(content, document.getElementById("modal-hook"));
-}
+});
 
-//This function get exported and hold the transitions for the Modal 
+//This function get exported and hold the transitions for the Modal
 function Modal(props) {
+  const inputRef = useRef(null);
   return (
     <React.Fragment>
       {props.show && <Backdrop onClick={props.onCancel} />}
@@ -39,8 +40,9 @@ function Modal(props) {
         unmountOnExit
         timeout={200}
         classNames="modal"
+        inputRef={inputRef}
       >
-        <ModalOverlay {...props} />
+        <ModalOverlay inputref={inputRef} {...props} />
       </CSSTransition>
     </React.Fragment>
   );

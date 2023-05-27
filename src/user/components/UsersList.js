@@ -1,13 +1,13 @@
 import UserItem from "./UserItem";
 import "./UsersList.css";
-import Card from '../../shared/components/UIElements/Card'
+import Card from "../../shared/components/UIElements/Card";
 
 function UsersList(props) {
   if (props.items.length === 0) {
     return (
       <div className="center">
         <Card>
-        <h2>No Users found</h2>
+          <h2>No Users found</h2>
         </Card>
       </div>
     );
@@ -26,6 +26,5 @@ function UsersList(props) {
     </ul>
   );
 }
-
 
 export default UsersList;

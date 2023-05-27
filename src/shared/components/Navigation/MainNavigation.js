@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./MainNavigation.css";
 import MainHeader from "./MainHeader";
 import { Link } from "react-router-dom";
@@ -16,10 +16,8 @@ function MainNavigation() {
   const closeDrawerHandler = () => {
     setDrawerIsOpen(false);
   };
+  
   //If the size of the page increases and the side drawer is open, it should automtically disappear
-  // if (window.matchMedia("(min-width: 768px)")){
-  //   setDrawerIsOpen(false)
-  // }
 
   return (
     <Fragment>

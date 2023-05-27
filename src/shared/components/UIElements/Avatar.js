@@ -1,8 +1,7 @@
-import React from 'react';
+import React from "react";
+import "./Avatar.css";
 
-import './Avatar.css';
-
-function Avatar (props){
+function Avatar(props) {
   return (
     <div className={`avatar ${props.className}`} style={props.style}>
       <img
@@ -12,6 +11,6 @@ function Avatar (props){
       />
     </div>
   );
-};
+}
 
 export default Avatar;

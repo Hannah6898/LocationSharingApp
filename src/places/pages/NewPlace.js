@@ -61,7 +61,7 @@ function NewPlace(props) {
         errorText="Please enter a valid Address."
         onInput={inputHandler}
       />
-      <Button type="submit" disable={!formState.isValid}>
+      <Button type="submit" disabled={!formState.isValid}>
         ADD PLACE
       </Button>
     </form>

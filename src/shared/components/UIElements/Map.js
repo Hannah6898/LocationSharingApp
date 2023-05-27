@@ -1,19 +1,17 @@
 import React, { useRef, useEffect } from "react";
 import "./Map.css";
-// import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 function Map(props) {
-
-  console.log(props.center)
+  console.log(props.center);
   const mapRef = useRef();
 
-  const {center, zoom} =props;
+  const { center, zoom } = props;
 
   //This useEffect will run after the JSX has been rendered. Therefore after the useRef connection has been establihed in to the JSX so the code knows where in the JSX to render the map
   useEffect(() => {
     const map = new window.google.maps.Map(mapRef.current, {
       center: center,
-      zoom: zoom
+      zoom: zoom,
     });
     new window.google.maps.Marker({ position: center, map: map });
   }, [center, zoom]);

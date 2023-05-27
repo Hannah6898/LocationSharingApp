@@ -7,6 +7,9 @@ const formReducer = (state, action) => {
       let formIsValid = true;
       //Go through all inputs in the form and check if all inputs are valid
       for (const inputId in state.inputs) {
+        if (!state.inputs[inputId]) {
+          continue;
+        }
         if (inputId === action.inputId) {
           //if true+false = false therefore if action.isValid is false it will result in formIsValid being equal to false
           formIsValid = formIsValid && action.isValid;
@@ -26,6 +29,11 @@ const formReducer = (state, action) => {
         },
         isValid: formIsValid,
       };
+    case "SET_DATA":
+      return {
+        inputs: action.inputs,
+        isValid: action.formIsValid,
+      };
     default:
       return state;
   }
@@ -38,7 +46,7 @@ export const useForm = (initalInputs, initalFormValidity) => {
     isValid: initalFormValidity,
   });
 
-   //useCallback is used for this function as when triggering these functions via the Input module and if in these
+  //useCallback is used for this function as when triggering these functions via the Input module and if in these
   //function we do anything that changes the state of the new place component and rerenders it. We will the create a new titleInputHandler or descriptionInputHandler
   //function (a new funtion object  will be created if the module rerenders). This means that the function will technically change and be passed to the Input component
   // and the useEffect will run again as the function is a dependency casuing an infinate loop.
@@ -52,5 +60,14 @@ export const useForm = (initalInputs, initalFormValidity) => {
     });
   }, []);
 
-  return[formState, inputHandler]
+  //Allows us to replace the values and validity stored in the form with data from the backend
+  const setFormData = useCallback((inputData, formValidity) => {
+    dispatch({
+      type: "SET_DATA",
+      inputs: inputData,
+      formIsValid: formValidity,
+    });
+  }, []);
+
+  return [formState, inputHandler, setFormData];
 };
