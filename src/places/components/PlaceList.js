@@ -5,6 +5,7 @@ import Button from "../../shared/components/FormElements/Button";
 
 
 function PlaceList(props) {
+  console.log(props.items)
   if (props.items.length === 0) {
     return (
       <div className="place-list center">
@@ -28,6 +29,7 @@ function PlaceList(props) {
           address={place.address}
           creatorID={place.creator}
           coordinates={place.location}
+          onDelete={props.onDeletePlace}
         />
       ))}
     </ul>
