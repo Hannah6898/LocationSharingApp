@@ -37,6 +37,9 @@ function PlaceItem(props) {
     } catch (err) {}
   };
 
+  console.log(auth.userId);
+  console.log(props.creatorId);
+
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
@@ -79,7 +82,7 @@ function PlaceItem(props) {
         <Card className="place-item__content">
           {isLoading && <LoadingSpinner asOverlay />}
           <div className="place-item__image">
-            <img src={props.image} alt={props.title}></img>
+            <img src={`http://localhost:3000/${props.image}`} alt={props.title}></img>
           </div>
           <div className="place-item__info">
             <h2>{props.title}</h2>
@@ -90,7 +93,7 @@ function PlaceItem(props) {
             <Button inverse onClick={openMapHandler}>
               VIEW ON MAP
             </Button>
-            {auth.userId === props.creatorId && (
+            {auth.userId === props.creatorID && (
               <React.Fragment>
                 {" "}
                 <Button to={`/places/${props.id}`}>EDIT</Button>

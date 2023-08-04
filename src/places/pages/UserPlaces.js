@@ -29,6 +29,7 @@ function UserPlaces() {
     );
   };
 
+  console.log(loadedPlaces)
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
