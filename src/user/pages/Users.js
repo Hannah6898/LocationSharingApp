@@ -1,5 +1,5 @@
-import UsersList from "../components/UsersList";
 import React, { useEffect, useState } from "react";
+import UsersList from "../components/UsersList";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useHttpClient } from "../../shared/hooks/http-hook";
@@ -11,10 +11,11 @@ function Users() {
   useEffect(() => {
     async function fetchUsers() {
       try {
-        const responseData = await sendRequest("http://localhost:3000/api/users/");
+        const responseData = await sendRequest(
+          "http://localhost:3000/api/users/"
+        );
         setUsers(responseData.users);
-      } catch (err) {
-      }
+      } catch (err) {}
     }
     fetchUsers();
   }, [sendRequest]);
@@ -25,10 +26,10 @@ function Users() {
       {isLoading && (
         <div className="center">
           {" "}
-          <LoadingSpinner/>
+          <LoadingSpinner />
         </div>
       )}
-     {!isLoading && users && <UsersList items={users} />} ;
+      {!isLoading && users && <UsersList items={users} />} ;
     </React.Fragment>
   );
 }

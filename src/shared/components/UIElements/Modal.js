@@ -1,8 +1,8 @@
+import React, { useRef } from "react";
 import "./Modal.css";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import Backdrop from "./Backdrop";
-import React, { useRef } from "react";
 
 //This function holds the structure of the modal and uses props to fill in the content and the classes
 const ModalOverlay = React.forwardRef((props, ref) => {

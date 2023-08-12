@@ -1,18 +1,18 @@
-import { useParams } from "react-router-dom";
 import React, { useEffect, useState, useContext } from "react";
-import Input from "../../shared/components/FormElements/Input";
-import Button from "../../shared/components/FormElements/Button";
+import "./PlaceForm.css";
+import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
 } from "../../shared/Utils/Validators";
-import "./PlaceForm.css";
-import { useForm } from "../../shared/hooks/form-hook";
+import Input from "../../shared/components/FormElements/Input";
+import Button from "../../shared/components/FormElements/Button";
 import Card from "../../shared/components/UIElements/Card";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../shared/context/auth-context";
 
 function UpdatePlace() {

@@ -4,22 +4,23 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
-import { AuthContext } from "./shared/context/auth-context";
+
 import Users from "./user/pages/Users";
+import Auth from "./user/pages/Auth";
+
 import NewPlace from "./places/pages/NewPlace";
 import UserPlaces from "./places/pages/UserPlaces";
-import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import UpdatePlace from "./places/pages/UpdatePlace";
-import Auth from "./user/pages/Auth";
+
+import { AuthContext } from "./shared/context/auth-context";
+import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import { useAuthentication } from "./shared/hooks/auth-hook";
 
-
-
 function App() {
-  const {token,login, logout, userId} = useAuthentication();
+  const { token, login, logout, userId } = useAuthentication();
 
   let routes;
-  
+
   if (token) {
     routes = (
       <Switch>

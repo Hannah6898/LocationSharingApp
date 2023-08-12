@@ -1,18 +1,18 @@
-import Input from "../../shared/components/FormElements/Input";
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import "./PlaceForm.css";
 import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
 } from "../../shared/Utils/Validators";
+import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
-import { useForm } from "../../shared/hooks/form-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import ImageUpload from "../../shared/components/FormElements/ImageUpload";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
-import ImageUpload from "../../shared/components/FormElements/ImageUpload";
 
 function NewPlace(props) {
   const auth = useContext(AuthContext);
@@ -46,11 +46,9 @@ function NewPlace(props) {
       formData.append("description", formState.inputs.description.value);
       formData.append("address", formState.inputs.address.value);
       formData.append("image", formState.inputs.image.value);
-      console.log(formData.get("image"));
       await sendRequest("http://localhost:3000/api/places", "POST", formData, {
         Authorization: "Bearer " + auth.token,
       });
-      console.log("submit");
       history.push("/");
     } catch (err) {}
   };

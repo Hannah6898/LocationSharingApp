@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import "./PlaceItem.css";
 import Card from "../../shared/components/UIElements/Card";
@@ -39,9 +38,6 @@ function PlaceItem(props) {
       history.push("/" + auth.userId + "/places");
     } catch (err) {}
   };
-
-  console.log(auth.token);
-  console.log(props.creatorId);
 
   return (
     <React.Fragment>

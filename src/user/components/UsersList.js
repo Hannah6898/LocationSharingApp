@@ -1,5 +1,5 @@
-import UserItem from "./UserItem";
 import "./UsersList.css";
+import UserItem from "./UserItem";
 import Card from "../../shared/components/UIElements/Card";
 
 function UsersList(props) {

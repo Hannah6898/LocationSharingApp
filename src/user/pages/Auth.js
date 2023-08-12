@@ -1,19 +1,19 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../../shared/context/auth-context";
 import "./Auth.css";
-import Input from "../../shared/components/FormElements/Input";
+import { AuthContext } from "../../shared/context/auth-context";
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
 } from "../../shared/Utils/Validators";
+import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
-import { useForm } from "../../shared/hooks/form-hook";
 import Card from "../../shared/components/UIElements/Card";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
-import { useHttpClient } from "../../shared/hooks/http-hook";
 import ImageUpload from "../../shared/components/FormElements/ImageUpload";
+import { useForm } from "../../shared/hooks/form-hook";
+import { useHttpClient } from "../../shared/hooks/http-hook";
 
 function Auth() {
   const auth = useContext(AuthContext);

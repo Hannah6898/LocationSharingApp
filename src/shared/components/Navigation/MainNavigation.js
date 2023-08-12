@@ -9,14 +9,14 @@ import Backdrop from "../UIElements/Backdrop";
 function MainNavigation() {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
-  //Opening and closing of the Side drawer 
+  //Opening and closing of the Side drawer
   const openDrawerHandler = () => {
     setDrawerIsOpen(true);
   };
   const closeDrawerHandler = () => {
     setDrawerIsOpen(false);
   };
-  
+
   //If the size of the page increases and the side drawer is open, it should automtically disappear
 
   return (
@@ -35,7 +35,10 @@ function MainNavigation() {
         <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav>
-        <button className="main-navigation__menu-btn" onClick={openDrawerHandler}>
+        <button
+          className="main-navigation__menu-btn"
+          onClick={openDrawerHandler}
+        >
           <span />
           <span />
           <span />

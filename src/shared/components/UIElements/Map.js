@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from "react";
 import "./Map.css";
 
 function Map(props) {
-  console.log(props.center);
   const mapRef = useRef();
 
   const { center, zoom } = props;

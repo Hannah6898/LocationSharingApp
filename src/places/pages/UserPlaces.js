@@ -1,6 +1,6 @@
-import PlaceList from "../components/PlaceList";
-import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import PlaceList from "../components/PlaceList";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
@@ -29,7 +29,6 @@ function UserPlaces() {
     );
   };
 
-  console.log(loadedPlaces)
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />

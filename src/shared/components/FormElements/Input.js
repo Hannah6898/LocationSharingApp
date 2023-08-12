@@ -1,5 +1,5 @@
-import "./Input.css";
 import React, { useReducer, useEffect } from "react";
+import "./Input.css";
 import { validate } from "../../Utils/Validators";
 
 //useReducer to handle the state of the validators for the Inputs
