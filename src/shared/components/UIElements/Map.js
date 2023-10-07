@@ -6,7 +6,8 @@ function Map(props) {
 
   const { center, zoom } = props;
 
-  //This useEffect will run after the JSX has been rendered. Therefore after the useRef connection has been establihed in to the JSX so the code knows where in the JSX to render the map
+  //This useEffect will run after the JSX has been rendered. 
+  //Therefore after the useRef connection has been establihed in to the JSX so the code knows where in the JSX to render the map
   useEffect(() => {
     const map = new window.google.maps.Map(mapRef.current, {
       center: center,

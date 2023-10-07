@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import "./MainNavigation.css";
 import MainHeader from "./MainHeader";
 import { Link } from "react-router-dom";

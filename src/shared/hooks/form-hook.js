@@ -1,6 +1,6 @@
 import { useCallback, useReducer } from "react";
 
-//useReducer to handle the state of validators for the overall form. Updates the inital state based on the actions we recieve
+//useReducer to handle the state of validators for the overall form. Updates the inital state based on the actions we receive
 const formReducer = (state, action) => {
   switch (action.type) {
     case "INPUT_CHANGE":
@@ -14,7 +14,6 @@ const formReducer = (state, action) => {
           //if true+false = false therefore if action.isValid is false it will result in formIsValid being equal to false
           formIsValid = formIsValid && action.isValid;
         } else {
-          //Take the stored valuse, the stored validity for this input beacuse it is the input we are not currently updating with this action
           formIsValid = formIsValid && state.inputs[inputId].isValid;
         }
       }
@@ -46,11 +45,11 @@ export const useForm = (initalInputs, initalFormValidity) => {
     isValid: initalFormValidity,
   });
 
-  //useCallback is used for this function as when triggering these functions via the Input module and if in these
+  //useCallback is used for this function as when we trigger these functions via the Input module and then if in this
   //function we do anything that changes the state of the new place component and rerenders it. We will the create a new titleInputHandler or descriptionInputHandler
-  //function (a new funtion object  will be created if the module rerenders). This means that the function will technically change and be passed to the Input component
+  //function (a new funtion object will be created if the module rerenders). This means that the function will technically change and be passed to the Input component
   // and the useEffect will run again as the function is a dependency casuing an infinate loop.
-  //useCallback wraps a function and define dependencyies on the function for when it should rerender. So if the new place component renrenders no new function object is created but it is stored away by react and reused
+  //useCallback wraps a function and defines dependencies on the function for when it should rerender. So if the new place component rerenders no new function object is created but it is stored away by react and reused
   const inputHandler = useCallback((id, value, isValid) => {
     dispatch({
       type: "INPUT_CHANGE",
