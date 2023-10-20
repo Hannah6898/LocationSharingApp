@@ -29,7 +29,7 @@ function Users() {
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && users && <UsersList items={users} />} ;
+      {!isLoading && users && <UsersList items={users} />} 
     </React.Fragment>
   );
 }
